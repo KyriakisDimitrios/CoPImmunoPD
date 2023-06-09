@@ -1,3 +1,4 @@
+if (!require("Seurat")) install.packages("Seurat")
 require(Seurat)
 
 # Load Object
