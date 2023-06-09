@@ -1,7 +1,8 @@
 # CoPImmunoPD
 
 ### Project Overview
-
+Parkinson’s disease (PD) is the second most common neurodegenerative disease. Brain neuroinflammation plays a role in PD pathogenesis. However, the involvement
+of the peripheral immune system has not been systematically investigated. Here we analyzed >700 combinatorial immunological features in fresh blood of 28 early-to-mid-stage PD patients and 24 matched controls. We found an enhanced cytotoxic immune profile in idiopathic PD patients (iPD), with a higher frequency of terminallydifferentiated effector CD8 T (TEMRA), late-differentiated CD8+ natural killer T cells and neutrophils. This immune profile was intensified by elevated serum granzyme A, reduced percentages of CD8+FOXP3+ regulatory T cells and group 2 innate lymphoid cells with immunosuppressive or tolerance-inducing functions. The frequency of CD8 TEMRA was negatively correlated with disease duration, suggesting a contribution to PD pathogenesis. Our work provides a comprehensive map on disturbed peripheral adaptive and innate immune cells in early-to-mid iPD, proposing easily-accessible candidates for early diagnosis and treatments. 
 
 ### scRNAseq Methods 
 The initial step in quality control involves eliminating low-quality reads from the datasets. This preprocessing task was performed independently for each dataset. To ensure only the highest quality data was selected, we retained cells with more than 100 genes and genes that were expressed in more than 10 cells. Moreover, we excluded cells with mitochondrial counts exceeding 20 percent.<br>
