@@ -5,3 +5,14 @@
 !.gitignore
 !Scripts
 !Scripts/*
+
+# Plots to add
+!Scripts/Result/Density_Plots/*.png
+
+
+# Plots of Pseudotime
+!Scripts/Result/Pseudotime/Umap_Pseudotime.pdf
+!Scripts/Result/Pseudotime/GM_Pseudotime.pdf
+!Scripts/Result/Pseudotime/Bar_Stack_Pseudotime.pdf
+!Scripts/Result/Pseudotime/Ridge_Pseudotime.pdf
+!Scripts/Result/Pseudotime/Ridge_Pseudotime_Overlays.pdf
