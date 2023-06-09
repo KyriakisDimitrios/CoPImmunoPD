@@ -7,7 +7,7 @@ Subbbb <- readRDS("Subset_raarranged.rds")
 # Select genes
 genes_to_plot <- c("GZMA", "GZMB")
 
-title_genes <- paste0(paste(features,collapse="_"))
+title_genes <- paste0(paste(genes_to_plot,collapse="_"))
 p <- VlnPlot(Subbbb, features=genes_to_plot,stack=T,group.by="CCellType",split.by="Condition",cols=c("black","red"),flip =T)
 
 # Save Plot as pdf
