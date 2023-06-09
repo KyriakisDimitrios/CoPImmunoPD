@@ -1,5 +1,16 @@
+# Set working directory
+setwd("C:/Feng Data/CoPImmunoPD/")
+
+
+# Install required libraries
 if (!require("Seurat")) install.packages("Seurat")
+if (!require("ggplot2")) install.packages("ggplot2")
+require(ggplot2)
 require(Seurat)
+
+
+# Path of plots
+resultdir <- "./draw_violin_r/"
 
 # Load Object
 Subbbb <- readRDS("Subset_raarranged.rds")
