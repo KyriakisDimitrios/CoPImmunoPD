@@ -7,10 +7,14 @@
 !Scripts/*
 
 # Plots to add
+!Result/
+!Result/Density_Plots/
 !Result/Density_Plots/*.png
 
 
 # Plots of Pseudotime
+!Result/
+!Result/Pseudotime/
 !Result/Pseudotime/Umap_Pseudotime.pdf
 !Result/Pseudotime/GM_Pseudotime.pdf
 !Result/Pseudotime/Bar_Stack_Pseudotime.pdf
