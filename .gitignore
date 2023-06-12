@@ -8,9 +8,9 @@
 
 # Plots to add
 !Result/
-!Result/Density_Plots/
-!Result/Density_Plots/*.png
-
+!Result/Final_Figures/
+!Result/Final_Figures/Combined_Markers/*
+!Result/Final_Figures/Single_Markers/*
 
 # Plots of Pseudotime
 !Result/
