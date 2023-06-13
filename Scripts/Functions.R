@@ -469,8 +469,8 @@ Combined_Percent_Expressing <- function(
   group_by = NULL,
   split_by = NULL,
   entire_object = FALSE,
-  slot =NULL,
-  assay = NULL
+  slot ="counts",
+  assay = "RNA"
 ) {
     # Check Seurat
     Is_Seurat(seurat_object = seurat_object)

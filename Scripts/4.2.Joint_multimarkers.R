@@ -44,7 +44,7 @@ if(!file.exists("subset_ccr7_up.rds") | !file.exists("subset_ccr7_down.rds")){
 
 
 
-DefaultAssay(Subbbb) <- "SCT"
+DefaultAssay(Subbbb) <- "RNA"
 # ---------------------------------------- IFNG+GZMK+ -----------------------------------------
 features <- c("GZMK","IFNG")
 title_genes1 <- paste0(paste(features,collapse="+"),"+")
