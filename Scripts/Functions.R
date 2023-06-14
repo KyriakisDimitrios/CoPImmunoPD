@@ -8,8 +8,7 @@ gene_score_calc <- function(dataframe_obj){
                 tstat= -log10(p_val_adj + 1e-320) * sign(avg_log2FC) ,
                 gene.score = avg_log2FC * enrichment.ratio) %>% 
                 dplyr::select(gene,tstat, gene.score,p_val, p_val_adj, diff.pct, enrichment.ratio,
-                    pct.1, pct.2, avg_log2FC,cluster) %>%
-                mutate(across(where(is.numeric), .f = ~ round(.x, 5)))
+                    pct.1, pct.2, avg_log2FC,cluster)
     return(dataframe_obj)
 }
 
