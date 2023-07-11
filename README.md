@@ -1,6 +1,6 @@
 # CoPImmunoPD
 
-Scripts for analyzing the single cell data of CoPImmunoPD project
+Scripts for analyzing the single cell data of the CoPImmunoPD project
 
 <!-- ### Project Overview
 Parkinson’s disease (PD) is the second-most common neurodegenerative disease.
