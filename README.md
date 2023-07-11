@@ -2,7 +2,7 @@
 
 Scripts for analyzing the single cell data of CoPImmunoPD project
 
-### Project Overview
+<!-- ### Project Overview
 Parkinson’s disease (PD) is the second-most common neurodegenerative disease.
 Brain neuroinflammation plays a role in PD pathogenesis. However, the involvement
 of peripheral immunity has not been systematically investigated. Here we analyzed &gt;700 combinatorial immunological features in fresh blood of 28 early-to-mid-stage
@@ -21,4 +21,4 @@ accelerated differentiation within CD8 compartments, enhanced cytotoxic pathways
 in CD8 TEMRA and TEM while already more-active and transcriptionally-
 reprogrammed CD8 TCM and naïve cells. Our work provides a comprehensive map
 on disturbed peripheral immunity in early-to-mid iPD, proposing candidates for
-early diagnosis and treatments.
+early diagnosis and treatments. -->
