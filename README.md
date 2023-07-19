@@ -1,14 +1,24 @@
 # CoPImmunoPD
 
-### Project Overview
-Parkinson’s disease (PD) is the second most common neurodegenerative disease. Brain neuroinflammation plays a role in PD pathogenesis. However, the involvement
-of the peripheral immune system has not been systematically investigated. Here we analyzed >700 combinatorial immunological features in fresh blood of 28 early-to-mid-stage PD patients and 24 matched controls. We found an enhanced cytotoxic immune profile in idiopathic PD patients (iPD), with a higher frequency of terminallydifferentiated effector CD8 T (TEMRA), late-differentiated CD8+ natural killer T cells and neutrophils. This immune profile was intensified by elevated serum granzyme A, reduced percentages of CD8+FOXP3+ regulatory T cells and group 2 innate lymphoid cells with immunosuppressive or tolerance-inducing functions. The frequency of CD8 TEMRA was negatively correlated with disease duration, suggesting a contribution to PD pathogenesis. Our work provides a comprehensive map on disturbed peripheral adaptive and innate immune cells in early-to-mid iPD, proposing easily-accessible candidates for early diagnosis and treatments. 
+Scripts for analyzing the single cell data of the CoPImmunoPD project
 
-### scRNAseq Methods 
-The initial step in quality control involves eliminating low-quality reads from the datasets. This preprocessing task was performed independently for each dataset. To ensure only the highest quality data was selected, we retained cells with more than 100 genes and genes that were expressed in more than 10 cells. Moreover, we excluded cells with mitochondrial counts exceeding 20 percent.<br>
-For droplet-based single-cell RNA-seq experiments, often there is background contamination resulting from a certain amount of background mRNAs. This contamination arises not from the cells enclosed within a droplet but from the solution containing the cells, created through cell lysis. To correct this contamination, we utilized SoupX (v. 1.6.2) to estimate the cell-specific contamination fraction and adjust the expression matrix. Subsequently, we employed scDblFinder (v. 1.12.0) to identify and filter out doublets. In this process, mitochondrial (13), ribosomal (94), and hemoglobin (1) genes were removed from the dataset. The integration of the four datasets was conducted using sctransform (v2), employing 3000 integration features. The resulting integrated object comprised 34,792 cells, with a median count of genes equals to 2252.<br>
-Moving forward, we performed an additional round of cell filtering, this time based on CCR7 expression. We excluded cells that were CCR7+ in the CD45RO+CCR7- and CD45RO-CCR7- datasets, while retaining only the CCR7+ cells in the CD45RO-CCR7+ and CD45RO+CCR7+ datasets. After this filtration step, the remaining cell count was 24,832, with a median count of genes equal to 2210 and a median count of 4805. The four datasets were re-integrated using the same method as before. Principal component analysis (PCA) was conducted on the integrated data, followed by a non-linear dimensionality reduction (UMAP) performed on the first 30 principal components. Density plots were created using Nebulosa (v1.8.0) and scCustomize (v1.1.1).<br>
-Subsequently, differential expression analysis was carried out separately for each cell type between healthy cases and Parkinson's disease. The FindMarkers function from the Seurat package (v. 4.3.) was employed for this purpose. Only genes detected in at least 0.3 fraction of either population were tested. 
-Then we calculated two metrics for each gene, the enrichment ratio and the gene.score. The enrichment ratio was calculated by the ratio of the percentage of cells where the gene was detected in the first group divided by the same percentage in the second group. The gene.score is a metric that combines the average log fold change and the enrichment ratio, by multiplying these two values. 
-Enrichment analysis was performed on genes showing differential expression with an adjusted p-value lower than 0.05 and an average fold change greater than 0.25 using the enrichR library (v. 3.2). Additionally, a GSEA analysis on KEGG and Reactome pathways was conducted using clusterProfiler (v. 4.6.2). The genes were ranked based on average fold change.<br>
-To calculate the pseudo-ordering of cells, we used slingshot (v. 2.6.0) to "adjust" a one-dimensional curve intersecting with the cell types in the multi-dimensional expression space. We utilized low-dimensional PC coordinates for noise reduction and enhanced speed. As a result, we obtained a sequential order of cells, referred to as pseudotime, based on their relative positions when projected onto the curve.
+<!-- ### Project Overview
+Parkinson’s disease (PD) is the second-most common neurodegenerative disease.
+Brain neuroinflammation plays a role in PD pathogenesis. However, the involvement
+of peripheral immunity has not been systematically investigated. Here we analyzed &gt;700 combinatorial immunological features in fresh blood of 28 early-to-mid-stage
+PD patients and 24 matched controls. We found an enhanced cytotoxic immune
+profile, especially in female idiopathic PD patients (iPD), with a higher frequency of
+terminally-differentiated effector memory CD8 T cells (TEMRA) and late-
+differentiated CD8 + natural killer T cells. This profile was intensified by elevated
+serum granzyme A and reduced percentages of CD8 + FOXP3 + regulatory T cells. The
+frequency of CD8 TEMRA was negatively correlated with disease duration,
+suggesting a contribution to PD pathogenesis. The enhanced portion of CD8
+TEMRA and the heightened ratios between CD8 TEMRA and central-memory cells
+(TCM) were further confirmed in independent cohort samples. Joint expression
+between cytotoxic molecules was strengthened within CD8 TEMRA and effector-
+memory T-cells (TEM). Our single-cell RNA-sequencing analysis demonstrated
+accelerated differentiation within CD8 compartments, enhanced cytotoxic pathways
+in CD8 TEMRA and TEM while already more-active and transcriptionally-
+reprogrammed CD8 TCM and naïve cells. Our work provides a comprehensive map
+on disturbed peripheral immunity in early-to-mid iPD, proposing candidates for
+early diagnosis and treatments. -->

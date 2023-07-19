@@ -7,16 +7,16 @@
 !Scripts/*
 
 # Plots to add
-!Result/
-!Result/Final_Figures/
-!Result/Final_Figures/Combined_Markers/*
-!Result/Final_Figures/Single_Markers/*
+Result/
+Result/Final_Figures/
+Result/Final_Figures/Combined_Markers/*
+Result/Final_Figures/Single_Markers/*
 
 # Plots of Pseudotime
-!Result/
-!Result/Pseudotime/
-!Result/Pseudotime/Umap_Pseudotime.pdf
-!Result/Pseudotime/GM_Pseudotime.pdf
-!Result/Pseudotime/Bar_Stack_Pseudotime.pdf
-!Result/Pseudotime/Ridge_Pseudotime.pdf
-!Result/Pseudotime/Ridge_Pseudotime_Overlays.pdf
+Result/
+# !Result/Pseudotime/
+# !Result/Pseudotime/Umap_Pseudotime.pdf
+# !Result/Pseudotime/GM_Pseudotime.pdf
+# !Result/Pseudotime/Bar_Stack_Pseudotime.pdf
+# !Result/Pseudotime/Ridge_Pseudotime.pdf
+# !Result/Pseudotime/Ridge_Pseudotime_Overlays.pdf
