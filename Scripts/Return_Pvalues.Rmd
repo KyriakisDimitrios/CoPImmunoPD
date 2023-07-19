@@ -1,0 +1,145 @@
+
+```{r read degs}
+CellType <- 'CCR7pCD45ROm'
+projectdir = "C:/Users/kyria.000/Documents/PhD/Projects/Feng2023/CoPImmunoPD/"
+datadir = paste0(projectdir,"Data/")
+objtdir = paste0(projectdir,"Result/Differnetial_Expression_pct_03/")
+resultdir = paste0(projectdir,"Result/Differnetial_Expression_pct_03/",CellType,"/")
+
+
+
+CCR7pCD45ROm_DE_Seurat <- as.data.frame(readr::read_csv(file=paste0(objtdir,'CCR7pCD45ROm/CCR7pCD45ROmDEG_MinPct_0.3.csv')))
+rownames(CCR7pCD45ROm_DE_Seurat) <- CCR7pCD45ROm_DE_Seurat$gene
+
+CCR7pCD45ROp_DE_Seurat <- as.data.frame(readr::read_csv(file=paste0(objtdir,'CCR7pCD45ROp/CCR7pCD45ROpDEG_MinPct_0.3.csv')))
+rownames(CCR7pCD45ROp_DE_Seurat) <- CCR7pCD45ROp_DE_Seurat$gene
+
+CCR7mCD45ROm_DE_Seurat <- as.data.frame(readr::read_csv(file=paste0(objtdir,'CCR7mCD45ROm/CCR7mCD45ROmDEG_MinPct_0.3.csv')))
+rownames(CCR7mCD45ROm_DE_Seurat) <- CCR7mCD45ROm_DE_Seurat$gene
+
+CCR7mCD45ROp_DE_Seurat <- as.data.frame(readr::read_csv(file=paste0(objtdir,'CCR7mCD45ROp/CCR7mCD45ROpDEG_MinPct_0.3.csv')))
+rownames(CCR7mCD45ROp_DE_Seurat) <- CCR7mCD45ROp_DE_Seurat$gene
+
+genes_6c <- c("CCR7","CD27","CD28","IL7R","SELL","TCF7","TOX")
+genes_6d <- c("GZMA","GZMB","GZMH","GZMM","KLRG1","PRF1","GNLY","NKG7","KLRD1")
+genes_6m <- c("HLA-A","HLA-DRB1","HLA-DQB1","CD74","CD8A","TAPBP","SPN","CD2","ITGB2","ITGAL",'PPP3CC','LCP2')
+```
+
+```{r Figure6c}
+figure6c <- as.data.frame(cbind(genes_6c,
+    CCR7pCD45ROm_DE_Seurat[genes_6c,c('p_val_adj',"avg_log2FC")],
+    CCR7pCD45ROp_DE_Seurat[genes_6c,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROm_DE_Seurat[genes_6c,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROp_DE_Seurat[genes_6c,c('p_val_adj',"avg_log2FC")]))
+colnames(figure6c) <- c("Gene","CCR7pCD45ROm_p_val_adj","CCR7pCD45ROm_avg_log2FC",
+                        "CCR7pCD45ROp_p_val_adj","CCR7pCD45ROp_avg_log2FC",
+                        "CCR7mCD45ROm_p_val_adj","CCR7mCD45ROm_avg_log2FC",
+                        "CCR7mCD45ROp_p_val_adj","CCR7mCD45ROp_avg_log2FC")
+rownames(figure6c)<-genes_6c
+figure6c
+readr::write_csv(figure6c,file=paste0(objtdir,"figure6c_pvalues.csv"))
+
+```
+
+```{r Figure6d}
+figure6d <- as.data.frame(cbind(genes_6d,
+    CCR7pCD45ROm_DE_Seurat[genes_6d,c('p_val_adj',"avg_log2FC")],
+    CCR7pCD45ROp_DE_Seurat[genes_6d,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROm_DE_Seurat[genes_6d,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROp_DE_Seurat[genes_6d,c('p_val_adj',"avg_log2FC")]))
+colnames(figure6d) <- c("Gene","CCR7pCD45ROm_p_val_adj","CCR7pCD45ROm_avg_log2FC",
+                        "CCR7pCD45ROp_p_val_adj","CCR7pCD45ROp_avg_log2FC",
+                        "CCR7mCD45ROm_p_val_adj","CCR7mCD45ROm_avg_log2FC",
+                        "CCR7mCD45ROp_p_val_adj","CCR7mCD45ROp_avg_log2FC")
+rownames(figure6d)<-genes_6d
+figure6d
+readr::write_csv(figure6d,file=paste0(objtdir,"figure6d_pvalues.csv"))
+
+```
+
+
+
+```{r Figure6m}
+figure6m <- as.data.frame(cbind(genes_6m,
+    CCR7pCD45ROm_DE_Seurat[genes_6m,c('p_val_adj',"avg_log2FC")],
+    CCR7pCD45ROp_DE_Seurat[genes_6m,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROm_DE_Seurat[genes_6m,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROp_DE_Seurat[genes_6m,c('p_val_adj',"avg_log2FC")]))
+colnames(figure6m) <- c("Gene","CCR7pCD45ROm_p_val_adj","CCR7pCD45ROm_avg_log2FC",
+                        "CCR7pCD45ROp_p_val_adj","CCR7pCD45ROp_avg_log2FC",
+                        "CCR7mCD45ROm_p_val_adj","CCR7mCD45ROm_avg_log2FC",
+                        "CCR7mCD45ROp_p_val_adj","CCR7mCD45ROp_avg_log2FC")
+rownames(figure6m)<-genes_6m
+figure6m
+readr::write_csv(figure6m,file=paste0(objtdir,"figure6m_pvalues.csv"))
+```
+
+
+```{r SFigure6I}
+genes_s6I <- c("HLA−DPB1",
+"GZMB",
+"HLA−C",
+"KLRD1",
+"HLA−A",
+"HLA−DRB1",
+"HLA−DPA1",
+"ITGB2",
+"NFATC3",
+"ITGAL",
+"PPP3CC",
+"PRKACB",
+"CD74",
+"VAV3",
+"PLCG2",
+"HCST")
+
+figures6I <- as.data.frame(cbind(genes_s6I,
+    CCR7pCD45ROm_DE_Seurat[genes_s6I,c('p_val_adj',"avg_log2FC")],
+    CCR7pCD45ROp_DE_Seurat[genes_s6I,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROm_DE_Seurat[genes_s6I,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROp_DE_Seurat[genes_s6I,c('p_val_adj',"avg_log2FC")]))
+colnames(figures6I) <- c("Gene","CCR7pCD45ROm_p_val_adj","CCR7pCD45ROm_avg_log2FC",
+                        "CCR7pCD45ROp_p_val_adj","CCR7pCD45ROp_avg_log2FC",
+                        "CCR7mCD45ROm_p_val_adj","CCR7mCD45ROm_avg_log2FC",
+                        "CCR7mCD45ROp_p_val_adj","CCR7mCD45ROp_avg_log2FC")
+rownames(figures6I)<-genes_s6I
+figures6I
+readr::write_csv(figures6I,file=paste0(objtdir,"sfigures6I_pvalues.csv"))
+
+```
+
+
+
+
+
+
+
+```{r SFigure7F}
+genes_s7F <- c(
+"PTPRC",
+"PIK3CD",
+"CD3G",
+"LCP2",
+"PRKCQ",
+"CARD11",
+"RUNX1",
+"RUNX2",
+"RUNX3",
+"ETS1",
+"LEF1"
+)
+
+figures7f <- as.data.frame(cbind(genes_s7F,
+    CCR7pCD45ROm_DE_Seurat[genes_s7F,c('p_val_adj',"avg_log2FC")],
+    CCR7pCD45ROp_DE_Seurat[genes_s7F,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROm_DE_Seurat[genes_s7F,c('p_val_adj',"avg_log2FC")],
+    CCR7mCD45ROp_DE_Seurat[genes_s7F,c('p_val_adj',"avg_log2FC")]))
+colnames(figures7f) <- c("Gene","CCR7pCD45ROm_p_val_adj","CCR7pCD45ROm_avg_log2FC",
+                        "CCR7pCD45ROp_p_val_adj","CCR7pCD45ROp_avg_log2FC",
+                        "CCR7mCD45ROm_p_val_adj","CCR7mCD45ROm_avg_log2FC",
+                        "CCR7mCD45ROp_p_val_adj","CCR7mCD45ROp_avg_log2FC")
+rownames(figures7f)<-genes_s7F
+figures7f
+readr::write_csv(figures7f,file=paste0(objtdir,"sfigures7f_pvalues.csv"))
+
+```
