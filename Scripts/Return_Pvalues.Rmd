@@ -76,13 +76,14 @@ readr::write_csv(figure6m,file=paste0(objtdir,"figure6m_pvalues.csv"))
 
 
 ```{r SFigure6I}
-genes_s6I <- c("HLA−DPB1",
+genes_s6I <- c(
+"HLA-DPB1",
 "GZMB",
-"HLA−C",
+"HLA-C",
 "KLRD1",
-"HLA−A",
-"HLA−DRB1",
-"HLA−DPA1",
+"HLA-A",
+"HLA-DRB1",
+"HLA-DPA1",
 "ITGB2",
 "NFATC3",
 "ITGAL",
