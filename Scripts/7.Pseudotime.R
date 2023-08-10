@@ -29,7 +29,7 @@ library(DESeq2)
 library(enrichR)
 
 
-setwd("C:/Users/kyria.000/Documents/PhD/Projects/Feng2023/")
+setwd("C:/Users/kyria.000/Documents/PhD/Projects/Feng2023/CoPImmunoPD/")
 Subbbb <- readRDS("Subset_raarranged.rds")
 
 table(Subbbb$Condition,Subbbb$CellType)
@@ -335,10 +335,47 @@ up.left_ord <- up.left[order(abs(up.left$logFC),decreasing = T),]
 up.left_ord$SYMBOL <- rownames(up.left_ord)
 best_left <- head(up.left_ord$SYMBOL, 20)
 best_right <- head(up.right_ord$SYMBOL, 20)
+
+mat <- Subbbb@assays$RNA@data
+ord <- colnames(Subbbb)[order(sce$Pseudotime)]
+dires<- TSCAN::difftest(mat,ord)
+dires$gene <- rownames(dires)
+readr::write_csv(as.data.frame(dires),file = "Result/Pseudotime/difftest_All_significant.csv")
+
+sign_dires <- dires[dires$qval<0.01,]
+only_diff_sign <- pseudo_sign[rownames(sign_dires),]
+head(sign_dires)
+only_diff_sign$qval <- sign_dires$qval
+only_diff_sign$pval <- sign_dires$pval
+
+final <- only_diff_sign[c(best_left,best_right),]
+readr::write_csv(as.data.frame(final),file = "Result/Pseudotime/finaldifftest_All_significant.csv")
+
+length(final$qval)
+head(only_diff_sign)
+
+
+pseudo
+
+pseudo_sign
+
+top20_up_down <- pseudo_sign[c(best_left,best_right),]
+top20_up_down$gene <- rownames(top20_up_down)
+pseudo_sign$gene <- rownames(pseudo_sign)
+
+top20_up_down
+pseudo_sign
+
+readr::write_csv(as.data.frame(pseudo_sign),file = "Result/Pseudotime/All_significant.csv")
+readr::write_csv(top20_up_down,file = "Result/Pseudotime/top20_up_down.csv")
+
+
+
 library(viridis)
 p <- plotHeatmap(sce,features=c(best_left,best_right), 
             order_columns_by='Pseudotime',
             center=TRUE,column_annotation_colors= list(Pseudotime=viridis(256, option = "B")))
+p
 pdf("Result/Pseudotime/Heatmap_top20_Pseudotime.pdf")
 p
 dev.off()
