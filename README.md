@@ -1,5 +1,7 @@
 # CoPImmunoPD
 
+[![DOI](https://zenodo.org/badge/651643951.svg)](https://zenodo.org/badge/latestdoi/651643951)
+
 Scripts for analyzing the single cell data of the CoPImmunoPD project
 
 <!-- ### Project Overview
